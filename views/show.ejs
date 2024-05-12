@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 text-white">
+        <h2 class="px-10 py-5 font-bold font-serif text-blue-600 text-1xl"><a href="/">Go Back to Home</a></h2>
+        <h2 class="px-10 mt-3 font-bold font-serif text-orange-600 text-2xl">File Name: <%= filename %></h2>
+        <div class="content w-full mt-3 px-10"><%= filedata %></div>
+        <div class="adddata w-full px-10 py-3 mt-20 rounded-md ">
+            <h2 class="mt-3 font-bold font-serif text-orange-600 text-2xl">Want to add something...</h2>
+            <form action="/updatefile/<%= filename %>" method="post">
+                <textarea class="block w-full rounded-md outline-none px-5 py2 resize-none mt-2 bg-zinc-600" placeholder="Write your additional details..." name="udetails"></textarea>
+                <input type="submit" class="mt-2 px-5 py-2 rounded-md bg-blue-600" value="Update File">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

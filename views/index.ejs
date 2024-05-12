@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 text-white">
+        <h2 class="px-10 py-5 font-bold font-serif text-orange-600 text-2xl">New Task:</h2>
+        <div class="form px-10">
+            <form action="/add" method="post">
+                <input type="text" class="block w-full rounded-md outline-none px-5 py2 bg-zinc-600" placeholder="Title goes here..." name="title">
+                <textarea class="block w-full rounded-md outline-none px-5 py2 resize-none mt-2 bg-zinc-600" placeholder="Write your task details..." name="details"></textarea>
+                <input type="submit" class="mt-2 px-5 py-2 rounded-md bg-blue-600" value="Create Task">
+            </form>
+        </div>
+        <h2 class="px-10 mt-10 font-bold font-serif text-orange-600 text-2xl">Tasks:</h2>
+        <div class="tasks px-10 flex gap-5 flex-wrap">
+        <% 
+            if(files.length>0){ 
+                files.forEach(function(val){ %>
+                <div class="cards w-72 px-5 py-2 mt-5 bg-zinc-600    ">
+                    <h3 class="text-2xl"><%= val %></h3>
+                    <div class="links flex justify-between text-1xl py-1 mt-1">
+                        <a href="./files/<%=val%>" class="text-cyan-400">View</a>
+                        <a href="/epg/<%=val%>" class="text-cyan-400">Rename</a>
+                        <a href="/remove/<%=val%>" class="text-cyan-400">Remove</a>
+                    </div>
+                </div>
+                <% })
+            } else{ %>
+                <h2 class="px-2 mt-4 font-serif text-gray-600 text-1xl">No tasks yet.</h2>
+           <% } %>
+        
+            
+        </div>
+    </div>
+    
+</body>
+</html>
